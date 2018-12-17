@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
 from xml.dom.minidom import parseString
-from httplib import HTTPSConnection
-from urllib import urlencode
+from http.client import HTTPSConnection
+from urllib.parse import urlencode
 import ssl
 import socket
 
@@ -120,7 +120,7 @@ Warning: using batch_mode will return error only if all API keys are bad
 
         try:
             res = self._parse_reponse(resp.read())
-        except Exception, e:
+        except Exception as e:
             res = {'type':    "pyrowlerror",
                    'code':    600,
                    'message': str(e)
